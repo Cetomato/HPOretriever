@@ -1,0 +1,27 @@
+---
+title: "Introduction to HPOretriever"
+author: "Zhigang Wang"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction to HPOretriever}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r, echo=T}
+reticulate::use_virtualenv(virtualenv='r-reticulate')
+library(HPOretriever)
+re = retrieve_similar_terms("irritability", k = 3)
+print(re)
+retrieve_similar_terms("tired", k = 3)
+retrieve_similar_terms("swelling at the injection site", k = 3)
+```
+

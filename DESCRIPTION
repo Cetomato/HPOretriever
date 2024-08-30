@@ -1,0 +1,18 @@
+Package: HPOretriever
+Type: Package
+Title: Retrieve Similar Terms from the HPO Ontology
+Version: 0.1.0
+Author: Zhigang Wang
+Maintainer: Zhigang Wang <wangzg.pumc@gmail.com>
+Description: A package to retrieve similar terms from the HPO ontology using text embeddings and the FAISS library.
+Depends: R (>= 4.0.0)
+Imports: 
+    reticulate
+Suggests:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.2.3
