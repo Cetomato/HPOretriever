@@ -1,5 +1,8 @@
-1. Start Ollama server, install llama3.1:8B model
-2. In R
+On a Linux computer with at least 32GB of physical memory and an Nvidia graphics card with at least 16GB of VRAM, install the Nvidia drivers.
+
+Start Ollama server, install llama3.1:8B model, stop proxy.
+
+In R:
 
 install.packages("reticulate")
 
