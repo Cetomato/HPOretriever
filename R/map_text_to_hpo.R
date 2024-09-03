@@ -30,11 +30,13 @@ map_text_to_hpo <- function(ae_text, k = 3) {
   ae_words <- py$get_ae_words(ae_text)
 
   # Initialize an empty data frame to store the mappings
-  hpo_mappings_df <- data.frame(word = character(),
-                                ID = character(),
-                                Name = character(),
-                                Distance = numeric(),
-                                stringsAsFactors = FALSE)
+  hpo_mappings_df <- data.frame(
+    word = character(),
+    ID = character(),
+    Name = character(),
+    Distance = numeric(),
+    stringsAsFactors = FALSE
+  )
 
   # Retrieve similar terms for each AE word
   for (word in ae_words) {
@@ -44,9 +46,12 @@ map_text_to_hpo <- function(ae_text, k = 3) {
     if (length(similar_terms) > 0) {
       word_df <- data.frame(
         word = rep(word, k),
-        ID = sapply(similar_terms, function(x) x[[1]]),
-        Name = sapply(similar_terms, function(x) x[[2]]),
-        Distance = sapply(similar_terms, function(x) x[[3]]),
+        ID = sapply(similar_terms, function(x)
+          x[[1]]),
+        Name = sapply(similar_terms, function(x)
+          x[[2]]),
+        Distance = sapply(similar_terms, function(x)
+          x[[3]]),
         stringsAsFactors = FALSE
       )
       hpo_mappings_df <- rbind(hpo_mappings_df, word_df)

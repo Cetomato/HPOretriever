@@ -31,7 +31,12 @@ retrieve_similar_terms <- function(query, k = 3) {
   result <- py$retrieve_similar_terms(query, as.integer(k))
 
   # Convert the Python list of tuples to an R data frame
-  similar_terms_df <- do.call(rbind, lapply(result, function(x) data.frame(ID = x[[1]], Name = x[[2]], Distance = x[[3]])))
+  similar_terms_df <- do.call(rbind, lapply(result, function(x)
+    data.frame(
+      ID = x[[1]],
+      Name = x[[2]],
+      Distance = x[[3]]
+    )))
 
   return(similar_terms_df)
 }
