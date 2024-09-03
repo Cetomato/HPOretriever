@@ -16,10 +16,13 @@
 #' }
 retrieve_similar_terms <- function(query, k = 3) {
   # Find the path to the Python script within the package
-  python_script_path <- system.file("python", "hpo_retriever.py", package = "HPOretriever")
-
+  # python_script_path <- system.file("python", "hpo_retriever.py", package = "HPOretriever")
   # Source the Python script using reticulate
-  reticulate::source_python(python_script_path)
+  # reticulate::source_python(python_script_path)
+
+  pythonr <- system.file("extdata", "hpo_retriever.rds", package = "HPOretriever")
+  pythonr_c <- readRDS(pythonr)
+  reticulate::py_run_string(pythonr_c)
 
   # Find the path to the pkl file within the package
   pkl_file_path <- system.file("extdata", "HPO_embed_db.pkl", package = "HPOretriever")
